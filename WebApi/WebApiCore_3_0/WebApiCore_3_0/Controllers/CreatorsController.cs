@@ -23,7 +23,7 @@ namespace WebApiCore_3_0.Controllers
         [HttpGet("{id}", Name = "GetCreator")]
         public ActionResult<Creator> Get(int id)
         {
-            var creator = context.Creators.FirstOrDefault(x => x.Id == id);
+            var creator = context.Creators.Include(x => x.Books).FirstOrDefault(x => x.Id == id);
 
             if (creator == null)
             {
@@ -36,7 +36,13 @@ namespace WebApiCore_3_0.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Creator>> Get()
         {
-            return context.Creators.ToList();
+            return context.Creators.Include(x => x.Books).ToList();
+        }
+
+        [HttpGet("first")]
+        public ActionResult<Creator> GetFirst()
+        {
+            return context.Creators.Include(x => x.Books).FirstOrDefault();
         }
 
         [HttpPost]

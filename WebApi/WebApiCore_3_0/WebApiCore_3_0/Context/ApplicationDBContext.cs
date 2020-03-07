@@ -15,5 +15,6 @@ namespace WebApiCore_3_0.Context
         }
 
         public DbSet<Creator> Creators { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

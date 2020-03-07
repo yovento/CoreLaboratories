@@ -125,3 +125,4 @@ C:\GitHub\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcor
 C:\GitHub\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcoreapp3.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\GitHub\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcoreapp3.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\GitHub\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\obj\Debug\netcoreapp3.0\WebApiCore_3_0.MvcApplicationPartsAssemblyInfo.cache
+D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\obj\Debug\netcoreapp3.0\WebApiCore_3_0.dll

@@ -18,6 +18,27 @@ namespace WebApiCore_3_0.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("WebApiCore_3_0.Entities.Book", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
+
+                    b.ToTable("Books");
+                });
+
             modelBuilder.Entity("WebApiCore_3_0.Entities.Creator", b =>
                 {
                     b.Property<int>("Id")
@@ -26,11 +47,21 @@ namespace WebApiCore_3_0.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Creators");
+                });
+
+            modelBuilder.Entity("WebApiCore_3_0.Entities.Book", b =>
+                {
+                    b.HasOne("WebApiCore_3_0.Entities.Creator", "Creator")
+                        .WithMany("Books")
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

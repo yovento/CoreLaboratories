@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebApiCore_3_0.Context;
+using Newtonsoft;
 
 namespace WebApiCore_3_0
 {
@@ -30,7 +31,9 @@ namespace WebApiCore_3_0
             services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

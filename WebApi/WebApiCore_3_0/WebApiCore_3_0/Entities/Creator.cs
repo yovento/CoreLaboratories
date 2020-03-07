@@ -13,5 +13,7 @@ namespace WebApiCore_3_0.Entities
         [Required]
         public string Name { get; set; }
 
+        public List<Book> Books { get; set; }
+
     }
 }
