@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebApiCore_3_0.Context;
 using Newtonsoft;
+using WebApiCore_3_0.Services;
 
 namespace WebApiCore_3_0
 {
@@ -31,6 +32,7 @@ namespace WebApiCore_3_0
             services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient<IClassB, ClassB>();
             services.AddControllers().AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );

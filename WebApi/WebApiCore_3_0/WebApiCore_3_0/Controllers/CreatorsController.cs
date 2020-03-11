@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApiCore_3_0.Context;
 using WebApiCore_3_0.Entities;
+using WebApiCore_3_0.Services;
 
 namespace WebApiCore_3_0.Controllers
 {
@@ -14,16 +15,18 @@ namespace WebApiCore_3_0.Controllers
     [ApiController]
     public class CreatorsController : ControllerBase
     {
-        public readonly ApplicationDBContext context;
-        public CreatorsController(ApplicationDBContext context)
+        private readonly ApplicationDBContext context;
+        private readonly IClassB classB;
+        public CreatorsController(ApplicationDBContext context, IClassB classB)
         {
             this.context = context;
+            this.classB = classB;
         }
 
         [HttpGet("{id}", Name = "GetCreator")]
-        public ActionResult<Creator> Get(int id)
+        public async Task<ActionResult<Creator>> Get(int id)
         {
-            var creator = context.Creators.Include(x => x.Books).FirstOrDefault(x => x.Id == id);
+            var creator = await context.Creators.Include(x => x.Books).FirstOrDefaultAsync(x => x.Id == id);
 
             if (creator == null)
             {
@@ -34,9 +37,10 @@ namespace WebApiCore_3_0.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Creator>> Get()
+        public async Task<ActionResult<IEnumerable<Creator>>> Get()
         {
-            return context.Creators.Include(x => x.Books).ToList();
+            classB.DoSomething();
+            return await context.Creators.Include(x => x.Books).ToListAsync();
         }
 
         [HttpGet("first")]
