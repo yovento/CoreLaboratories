@@ -19,5 +19,6 @@ namespace WebApiCore_3_0.Controllers
         {
             return DateTime.Now.Second.ToString();
         }
+
     }
 }
