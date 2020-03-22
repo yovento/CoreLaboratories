@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using WebApiCore_3_0.Context;
 using Newtonsoft;
 using WebApiCore_3_0.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace WebApiCore_3_0
 {
@@ -29,6 +30,9 @@ namespace WebApiCore_3_0
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddResponseCaching();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer();
             services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -47,10 +51,13 @@ namespace WebApiCore_3_0
             }
 
             app.UseHttpsRedirection();
-
+            
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseResponseCaching();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
