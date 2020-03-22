@@ -123,4 +123,5 @@ D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\obj\Debug\netco
 D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Debug.dll
 D:\Fuentes\CoreLaboratories\WebApi\WebApiCore_3_0\WebApiCore_3_0\obj\Debug\netcoreapp3.1\WebApiCore_3_0.MvcApplicationPartsAssemblyInfo.cache
